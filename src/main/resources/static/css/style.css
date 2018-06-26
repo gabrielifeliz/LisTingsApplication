@@ -1,0 +1,11 @@
+body {
+    background-color: lightgrey;
+}
+
+.container {
+    background:rgba(255,255,255,0.9);
+}
+
+label {
+    font-weight: bold;
+}
