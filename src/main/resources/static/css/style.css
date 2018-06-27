@@ -6,7 +6,9 @@ body {
 {
     background-color: orangered;
 }
-
+.text-sm-center {
+    background-color: orange;
+}
 .container {
     background:rgba(255,255,255,0.9);
 }

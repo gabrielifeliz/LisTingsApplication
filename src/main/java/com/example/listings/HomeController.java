@@ -22,7 +22,6 @@ public class HomeController {
         return "index";
     }
 
-
     @GetMapping("/addpost")
     public String addPost(Model model) {
         model.addAttribute("post", new Post());
@@ -34,6 +33,7 @@ public class HomeController {
         if (result.hasErrors()) {
             return "addpost";
         }
+
         post.setPublicationDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMM dd, yyyy HH:mm:ss")));
         postRepository.save(post);
         return "redirect:/";
@@ -59,7 +59,7 @@ public class HomeController {
         model.addAttribute("search", searchString);
         model.addAttribute("posts",
                 postRepository.findAllByTitleContainingIgnoreCase(searchString));
-        return "redirect:/";
+        return "index";
     }
 }
 

@@ -28,6 +28,9 @@ public class Post {
 
     private String publicationDate;
 
+    private String image;
+
+
     public long getId() {
         return id;
     }
@@ -68,13 +71,23 @@ public class Post {
         this.publicationDate = publicationDate;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
                 "id=" + id +
                 ", url='" + url + '\'' +
+                ", title='" + title + '\'' +
                 ", userName='" + userName + '\'' +
                 ", publicationDate='" + publicationDate + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

@@ -15,17 +15,16 @@
     </div>
 </div>
 <br/>
-<div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]:</div>
+<div class="container jumbotron" th:if="${search}!=null" th:inline="text">You searched for [[${search}]]:</div>
 <div class="container" th:each="post : ${posts}">
     <div class="jumbotron">
         <ul class="list-group">
-            <li class="list-group-item"><strong>Title: </strong>
-                <a th:href="${post.url}" target="_blank"><span th:text="${post.title}"></span></a></li>
-            <li class="list-group-item"><strong>Username: </strong>
-                <span th:text="${post.userName}">Submitted by </span></li>
-            <li class="list-group-item"><strong>Date: </strong>
-                <span th:text="${post.publicationDate}"></span></li>
+            <li class="list-group-item"><a th:href="${post.url}" target="_blank"><span th:text="${post.title}"></span></a></li>
+            <li class="list-group-item"><span th:text="${post.userName}">Submitted by </span></li>
+            <li class="list-group-item"><span th:text="${post.publicationDate}"></span></li>
         </ul>
+        <br/>
+        <span th:text="${post.image}" ></span>
         <br/>
         <a th:href="@{/update/{id}(id=${post.id})}" role="button">
             <button class="btn btn-info btn-lg">Update</button></a><br /><br />
