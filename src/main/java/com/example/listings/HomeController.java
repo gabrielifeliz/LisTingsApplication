@@ -59,7 +59,7 @@ public class HomeController {
         model.addAttribute("search", searchString);
         model.addAttribute("posts",
                 postRepository.findAllByTitleContainingIgnoreCase(searchString));
-        return "listposts";
+        return "redirect:/";
     }
 }
 

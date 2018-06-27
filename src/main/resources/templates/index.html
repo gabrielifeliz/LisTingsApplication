@@ -15,6 +15,7 @@
     </div>
 </div>
 <br/>
+<div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]:</div>
 <div class="container" th:each="post : ${posts}">
     <div class="jumbotron">
         <ul class="list-group">
