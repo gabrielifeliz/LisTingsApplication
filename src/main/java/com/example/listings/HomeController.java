@@ -39,17 +39,6 @@ public class HomeController {
         return "redirect:/";
     }
 
-    /*@RequestMapping("/showposts")
-    public String showPost(Model model) {
-        model.addAttribute("posts", postRepository.findAllByOrderByPublicationDateDesc());
-        return "listposts";
-    }
-*/
-    @RequestMapping("/detail/{id}")
-    public String postDetails(@PathVariable("id") long id, Model model) {
-        model.addAttribute("post", postRepository.findById(id).get());
-        return "showpost";
-    }
     @RequestMapping("/update/{id}")
     public String updatePost( @PathVariable("id") long id, Model model){
         model.addAttribute("post", postRepository.findById(id).get());
