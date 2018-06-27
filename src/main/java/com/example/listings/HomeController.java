@@ -17,7 +17,8 @@ public class HomeController {
     PostRepository postRepository;
 
     @RequestMapping("/")
-    public String displayHome() {
+    public String displayHome(Model model) {
+        model.addAttribute("posts", postRepository.findAllByOrderByPublicationDateDesc());
         return "index";
     }
 
@@ -29,21 +30,21 @@ public class HomeController {
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid Post post, BindingResult result) {
+    public String processForm(@Valid @ModelAttribute("post") Post post, BindingResult result) {
         if (result.hasErrors()) {
             return "addpost";
         }
-        post.setPublicationDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM DD, YYYY")));
+        post.setPublicationDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMM dd, yyyy HH:mm:ss")));
         postRepository.save(post);
-        return "redirect:/showposts";
+        return "redirect:/";
     }
 
-    @RequestMapping("/showposts")
+    /*@RequestMapping("/showposts")
     public String showPost(Model model) {
         model.addAttribute("posts", postRepository.findAllByOrderByPublicationDateDesc());
         return "listposts";
     }
-
+*/
     @RequestMapping("/detail/{id}")
     public String postDetails(@PathVariable("id") long id, Model model) {
         model.addAttribute("post", postRepository.findById(id).get());
@@ -58,7 +59,7 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public  String deletePost(@PathVariable("id") long id){
         postRepository.deleteById(id);
-        return "listposts";
+        return "redirect:/";
     }
 
     @RequestMapping("/search")

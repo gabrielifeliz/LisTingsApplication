@@ -26,8 +26,6 @@ public class Post {
     @Size(min = 1)
     private String userName;
 
-    @NotEmpty
-    @Size(min = 1)
     private String publicationDate;
 
     public long getId() {

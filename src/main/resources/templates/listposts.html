@@ -10,7 +10,7 @@
 <div class="container">
     <h1 class = "display-4">List of Movies</h1>
     <div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]:</div>
-    <ul class="list-group" th:each="movie:${movies}">
+    <ul class="list-group" th:each="post:${movies}">
         <a th:href="@{/detail/{id}(id=${movie.id})}">
             <li class="list-group-item" th:text="${movie.title}">
         </a>

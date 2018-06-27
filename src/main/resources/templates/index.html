@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <th:block th:replace="base :: csslinks"> </th:block>
-    <title>MovieFinder - Home Page</title>
+    <title>Gabriel's Reddit - Home Page</title>
 </head>
 
 <body>
@@ -11,8 +11,26 @@
 
 <div class="jumbotron jumbotron-fluid text-center">
     <div class="jumbotron text-sm-center">
-        <h1 class = "display-1">Welcome to MovieFinder!</h1>
-        <a th:href="@{/addmovie}"><button class="btn btn-info btn-lg">Add Movie Information</button></a>
+        <h1 class = "display-1">Welcome to Gabriel's Reddit!</h1><br/><br/>
+    </div>
+</div>
+<br/>
+<div class="container" th:each="post : ${posts}">
+    <div class="jumbotron">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Title: </strong>
+                <a th:href="${post.url}" target="_blank"><span th:text="${post.title}"></span></a></li>
+            <li class="list-group-item"><strong>Username: </strong>
+                <span th:text="${post.userName}">Submitted by </span></li>
+            <li class="list-group-item"><strong>Date: </strong>
+                <span th:text="${post.publicationDate}"></span></li>
+        </ul>
+        <br/>
+        <a th:href="@{/update/{id}(id=${post.id})}" role="button">
+            <button class="btn btn-info btn-lg">Update</button></a><br /><br />
+
+        <a th:href="@{/delete/{id}(id=${post.id})}" role="button">
+            <button class="btn btn-info btn-lg">Delete</button></a><br /><br />
     </div>
 </div>
 <th:block th:replace="base :: jslinks"></th:block>

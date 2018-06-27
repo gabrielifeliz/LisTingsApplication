@@ -21,26 +21,27 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0" th:action="@{/search}"  method="post">
+            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search for a post here..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                <img src="/img/search_icon.jpg" width="20" height="20" alt="Search Icon"></button>
+        </form>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/addpost">Add Post</a>
             </li>
         </ul>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        <ul class="navbar-nav mr-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Sign Up</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" th:action="@{/search}"  method="post">
-            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Type Here..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 <th:block th:fragment="jslinks">

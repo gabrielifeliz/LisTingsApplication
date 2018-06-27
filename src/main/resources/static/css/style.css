@@ -1,6 +1,11 @@
 body {
     background-color: lightgrey;
 }
+.jumbotron-fluid
+{
+    background: url("/img/reddit_background.jpg");
+    background-position:center;
+}
 
 .container {
     background:rgba(255,255,255,0.9);
