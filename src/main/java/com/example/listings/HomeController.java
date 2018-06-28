@@ -34,7 +34,8 @@ public class HomeController {
             return "addpost";
         }
 
-        post.setPublicationDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMM dd, yyyy HH:mm:ss")));
+        post.setPublicationDate(LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("MMMM dd, yyyy HH:mm:ss")));
         postRepository.save(post);
         return "redirect:/";
     }
@@ -91,12 +92,12 @@ public class HomeController {
         Each submission should include a title and a url, and the url should be clickable when displayed as a list. Further the links should open in a new tab when clicked.
 
         Be careful and plan things out before you start coding!
-        
-        
-        
-        
+
+
+
+
         LocalDateTime.now()
-        
-        
-        
+
+
+
         */
