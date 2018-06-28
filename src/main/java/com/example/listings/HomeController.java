@@ -34,8 +34,7 @@ public class HomeController {
             return "addpost";
         }
 
-        post.setPublicationDate(LocalDateTime.now()
-                .format(DateTimeFormatter.ofPattern("MMMM dd, yyyy HH:mm:ss")));
+        post.setPublicationDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMM dd, yyyy HH:mm:ss")));
         postRepository.save(post);
         return "redirect:/";
     }
