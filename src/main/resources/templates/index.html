@@ -21,7 +21,7 @@
         <ul class="list-group">
             <li class="list-group-item"><a th:href="${post.url}" target="_blank">
                 <span th:text="${post.title}"></span></a></li>
-            <li class="list-group-item"><span th:text="${post.userName}">Submitted by </span></li>
+            <li class="list-group-item"><span th:text="'Submitted by '+ ${post.userName}"></span></li>
             <li class="list-group-item"><span th:text="${post.publicationDate}"></span></li>
             <li class="list-group-item image-wrapper"  th:if="${post.image} != null">
                 <a th:href="${post.url}" target="_blank" ><img id="post-image" th:src="${post.image}"/></a>
